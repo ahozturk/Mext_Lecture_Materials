@@ -4,13 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleApp1.Enums
+namespace ConsoleApp1.Models.Common
 {
-    public enum ClothingSize
+    public interface ISaving : IDescription
     {
-        XS = 3,
-        S = 0,
-        M = 1,
-        L = 2,
+        string FileName { get; }
     }
 }

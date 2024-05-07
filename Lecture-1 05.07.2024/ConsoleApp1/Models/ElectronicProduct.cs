@@ -7,9 +7,10 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1.Models
 {
-    public class ElectronicProduct : ProductBase, IDescription
+    public class ElectronicProduct : ProductBase, ISaving
     {
         public TimeSpan DefaultWarrantyDurationInDays { get; set; }
+        public string FileName { get => "ElectronicProducts"; }
 
         public string GiveDescription()
         {
