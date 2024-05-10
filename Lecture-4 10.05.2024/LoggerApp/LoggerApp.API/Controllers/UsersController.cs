@@ -8,24 +8,27 @@ namespace LoggerApp.API.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly LoggerApp.Domain.Abstractions.ILogger _logger;
+        private readonly LoggerApp.Domain.Abstractions.ITextLogger _textLogger;
+        private readonly LoggerApp.Domain.Abstractions.ILogger _consoleLogger;
 
-        public UsersController(LoggerApp.Domain.Abstractions.ILogger logger)
+        public UsersController(LoggerApp.Domain.Abstractions.ITextLogger logger, Domain.Abstractions.ILogger consoleLogger)
         {
-            _logger = logger;
+            _textLogger = logger;
+            _consoleLogger = consoleLogger;
         }
 
         [HttpGet]
         public IActionResult GetAll()
         {
-            _logger.Log("All Users Sent");
+            _textLogger.AddSpaceLine();
+            _textLogger.Log("All Users Sent");
             return Ok("Users");
         }
 
         [HttpPost]
         public IActionResult Add()
         {
-            _logger.Log("User Added");
+            _textLogger.Log("User Added");
             return Ok();
         }
     }

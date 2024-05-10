@@ -9,6 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddSingleton<LoggerApp.Domain.Abstractions.ITextLogger, TextFileLogger>();
 builder.Services.AddSingleton<LoggerApp.Domain.Abstractions.ILogger, ConsoleLogger>();
 
 var app = builder.Build();
