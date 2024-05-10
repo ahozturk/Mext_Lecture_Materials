@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34511.84
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerAppReview.Domain", "CustomerAppReview.Domain\CustomerAppReview.Domain.csproj", "{1D1C7FA1-C461-4D1B-9C2D-20BF8B7AA059}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerAppReview.API", "CustomerAppReview.API\CustomerAppReview.API.csproj", "{4F17C5E1-2703-4DFC-AA21-A4C4ECE14D3E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1D1C7FA1-C461-4D1B-9C2D-20BF8B7AA059}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D1C7FA1-C461-4D1B-9C2D-20BF8B7AA059}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D1C7FA1-C461-4D1B-9C2D-20BF8B7AA059}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D1C7FA1-C461-4D1B-9C2D-20BF8B7AA059}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F17C5E1-2703-4DFC-AA21-A4C4ECE14D3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F17C5E1-2703-4DFC-AA21-A4C4ECE14D3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F17C5E1-2703-4DFC-AA21-A4C4ECE14D3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F17C5E1-2703-4DFC-AA21-A4C4ECE14D3E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {70F3A784-BE9F-4128-9BD7-C5D7E1CB5A9B}
+	EndGlobalSection
+EndGlobal
