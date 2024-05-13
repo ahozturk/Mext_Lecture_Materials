@@ -1,6 +1,6 @@
 ﻿namespace EventListApp.Domain;
 
-public class Event
+public class Event : EntityBase
 {
     public string Title { get; set; }
     public string Description { get; set; }
