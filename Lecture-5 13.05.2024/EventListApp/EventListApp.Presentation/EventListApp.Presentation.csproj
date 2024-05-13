@@ -7,11 +7,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.4" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Controllers/" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\EventListApp.Persistence\EventListApp.Persistence.csproj" />
   </ItemGroup>
 
 </Project>
