@@ -3,5 +3,5 @@
 public interface IPromptService
 {
     void Add(AddPromptDto addPromptDto);
-    List<GetPromptDto> GetPrompts(string userId);
+    List<GetPromptDto> GetAll(string userId);
 }

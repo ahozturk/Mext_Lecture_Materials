@@ -24,8 +24,15 @@ public class PromptService : IPromptService
         _context.SaveChanges();
     }
 
-    public List<GetPromptDto> GetPrompts(string userId)
+    public List<GetPromptDto> GetAll(string userId)
     {
-        throw new NotImplementedException();
+        return _context.Prompts
+            .Where(x => x.CreatedBy == userId)
+            .Select(x => new GetPromptDto
+            {
+                PromptText = x.PromptText,
+                ResponseText = x.ResponseText,
+                CreatedDate = x.CreatedDate
+            }).ToList();
     }
 }
