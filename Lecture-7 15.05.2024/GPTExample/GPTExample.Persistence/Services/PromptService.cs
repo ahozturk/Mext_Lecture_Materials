@@ -12,16 +12,21 @@ public class PromptService : IPromptService
         _context = context;
     }
 
-    public void Add(AddPromptDto addPromptDto)
+    public Guid Add(AddPromptDto addPromptDto)
     {
-        _context.Prompts.Add(new GPTPrompt
+        var newPrompt = new GPTPrompt
         {
+            Id = Guid.NewGuid(),
             PromptText = addPromptDto.PromptText,
             CreatedBy = addPromptDto.CreatedBy,
             // CreatedDate = DateTimeOffset.UtcNow
-        });
+        };
+
+        _context.Prompts.Add(newPrompt);
 
         _context.SaveChanges();
+
+        return newPrompt.Id;
     }
 
     public List<GetPromptDto> GetAll(string userId)
@@ -31,7 +36,7 @@ public class PromptService : IPromptService
             .Select(x => new GetPromptDto
             {
                 PromptText = x.PromptText,
-                ResponseText = x.ResponseText,
+                ResponseText = x.ResponseText?? "No response yet",
                 CreatedDate = x.CreatedDate
             }).ToList();
     }

@@ -15,12 +15,20 @@ namespace MyApp.Namespace
             _promptService = promptService;
         }
 
-        [HttpGet]
-        public IActionResult GetPrompts(string userId)
+        [HttpGet("{userId}")]
+        public IActionResult GetAll(string userId)
         {
             var prompts = _promptService.GetAll(userId);
 
             return Ok(prompts);
+        }
+
+        [HttpPost]
+        public IActionResult Add(AddPromptDto addPromptDto)
+        {
+            Guid newPromptId = _promptService.Add(addPromptDto);
+
+            return Ok(newPromptId);
         }
     }
 }

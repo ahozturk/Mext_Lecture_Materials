@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GPTExample.Application\GPTExample.Application.csproj" />
+    <ProjectReference Include="..\GPTExample.Persistence\GPTExample.Persistence.csproj" />
   </ItemGroup>
 
 </Project>
