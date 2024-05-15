@@ -1,0 +1,6 @@
+@GPTExample.Presentation_HostAddress = http://localhost:5034
+
+GET {{GPTExample.Presentation_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
