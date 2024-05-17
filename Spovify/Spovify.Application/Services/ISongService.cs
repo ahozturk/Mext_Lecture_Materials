@@ -2,5 +2,8 @@
 
 public interface ISongService
 {
-    void AddSong(AddSongDto addSongDto);
+    void Add(AddSongDto addSongDto);
+    List<GetSongDto> List();
+    void Update(Guid id, UpdateSongDto updateSongDto);
+    void Delete(Guid id);
 }

@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\Spovify.Domain\Spovify.Domain.csproj" />
+    <ProjectReference Include="..\Spovify.Application\Spovify.Application.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
