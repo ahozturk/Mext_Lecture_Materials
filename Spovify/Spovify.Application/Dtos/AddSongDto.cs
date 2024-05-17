@@ -1,6 +1,8 @@
-﻿namespace Spovify.Domain;
+﻿using Spovify.Domain;
 
-public class Song : EntityBase<Guid>
+namespace Spovify.Application;
+
+public class AddSongDto
 {
     public string Name { get; set; }
     public Artist Artist { get; set; }
