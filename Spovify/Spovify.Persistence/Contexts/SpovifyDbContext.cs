@@ -9,7 +9,9 @@ public class SpovifyDbContext : DbContext
     public DbSet<Producer> Producers { get; set; }
     public DbSet<Song> Songs { get; set; }
 
+    //cd Spovify.Persistence
     //dotnet ef migrations add mig_1_initialize
+    //dotnet ef database update
     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
