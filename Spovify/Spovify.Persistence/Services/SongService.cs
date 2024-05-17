@@ -1,20 +1,46 @@
 ﻿using Spovify.Application;
+using Spovify.Domain;
 
 namespace Spovify.Persistence;
 
 public class SongService : ISongService
 {
-    public void Add(AddSongDto addSongDto)
+    private readonly SpovifyDbContext _context;
+
+    public SongService(SpovifyDbContext context)
     {
-        throw new NotImplementedException();
+        _context = context;
     }
 
-    public void Delete(Guid id)
+    public void Add(AddSongDto addSongDto)
     {
-        throw new NotImplementedException();
+        var newSong = new Song()
+        {
+            Name = addSongDto.Name,
+            Artist = addSongDto.Artist,
+            Producer = addSongDto.Producer
+        };
+
+        _context.Songs.Add(newSong);
+
+        _context.SaveChanges();
     }
 
     public List<GetSongDto> List()
+    {
+        var data = _context.Songs
+            .Select(x => new GetSongDto()
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    ArtistName = x.Artist.Name,
+                    ProducerName = x.Producer.Name
+                }).ToList();
+
+        return data;
+    }
+
+    public void Delete(Guid id)
     {
         throw new NotImplementedException();
     }
