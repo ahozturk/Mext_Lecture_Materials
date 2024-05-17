@@ -40,9 +40,18 @@ public class SongService : ISongService
         return data;
     }
 
-    public void Delete(Guid id)
+    public DeleteSongResponse Delete(Guid id)
     {
-        throw new NotImplementedException();
+        var song = _context.Songs.FirstOrDefault(x => x.Id == id);
+
+        if (song is null)
+            return new DeleteSongResponse(false, "Song not found.");
+
+        _context.Songs.Remove(song);
+
+        _context.SaveChanges();
+
+        return new DeleteSongResponse(true);
     }
 
     public void Update(Guid id, UpdateSongDto updateSongDto)
