@@ -1,4 +1,5 @@
 ﻿using Productify.Application;
+using Productify.Domain;
 
 namespace Productify.Persistence;
 
@@ -13,21 +14,52 @@ public class ProductService : IProductService
 
     public void Add(AddProductDto addProductDto)
     {
-        throw new NotImplementedException();
+        var product = new Product
+        {
+            Name = addProductDto.Name,
+            Description = addProductDto.Description,
+        };
+
+        _context.Products.Add(product);
+
+        _context.SaveChanges();
     }
 
     public void Delete(Guid id)
     {
-        throw new NotImplementedException();
+        var product = _context.Products.FirstOrDefault(x => x.Id == id);
+
+        if (product is null)
+            throw new Exception("Product not found");
+
+        _context.Products.Remove(product);
+
+        _context.SaveChanges();
     }
 
     public List<GetProductDto> GetAll()
     {
-        throw new NotImplementedException();
+        var products = _context.Products.Select(x => new GetProductDto
+        {
+            Id = x.Id,
+            Name = x.Name,
+            Description = x.Description,
+            IsDeleted = x.IsDeleted,
+        }).ToList();
+
+        return products;
     }
 
     public void Update(Guid id, UpdateProductDto addProductDto)
     {
-        throw new NotImplementedException();
+        var product = _context.Products.FirstOrDefault(x => x.Id == id);
+
+        if (product is null)
+            throw new Exception("Product not found");
+
+        product.Name = addProductDto.Name;
+        product.Description = addProductDto.Description;
+
+        _context.SaveChanges();
     }
 }
