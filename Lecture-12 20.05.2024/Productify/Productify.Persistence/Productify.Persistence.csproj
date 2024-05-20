@@ -12,5 +12,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Productify.Domain\Productify.Domain.csproj" />
+    <ProjectReference Include="..\Productify.Application\Productify.Application.csproj" />
   </ItemGroup>
 </Project>

@@ -1,9 +1,9 @@
 ﻿namespace Productify.Application;
 
-public interface ProductService
+public interface IProductService
 {
     List<GetProductDto> GetAll();
     void Add(AddProductDto addProductDto);
-    void Update(Guid id, AddProductDto addProductDto);
+    void Update(Guid id, UpdateProductDto addProductDto);
     void Delete(Guid id);
 }
