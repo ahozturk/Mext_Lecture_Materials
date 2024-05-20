@@ -20,9 +20,16 @@ public class ProductService : IProductService
             Description = addProductDto.Description,
         };
 
+        var entityState1 = _context.Entry(product).State;
+
         _context.Products.Add(product);
 
+        var entityState2 = _context.Entry(product).State;
+
         _context.SaveChanges();
+
+        var entityState3 = _context.Entry(product).State;
+
     }
 
     public void Delete(Guid id)
@@ -50,15 +57,15 @@ public class ProductService : IProductService
         return products;
     }
 
-    public void Update(Guid id, UpdateProductDto addProductDto)
+    public void Update(Guid id, UpdateProductDto updateProductDto)
     {
         var product = _context.Products.FirstOrDefault(x => x.Id == id);
 
         if (product is null)
             throw new Exception("Product not found");
 
-        product.Name = addProductDto.Name;
-        product.Description = addProductDto.Description;
+        product.Name = updateProductDto.Name;
+        product.Description = updateProductDto.Description;
 
         _context.SaveChanges();
     }

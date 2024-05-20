@@ -14,7 +14,7 @@ public class ProductifyDbContext : DbContext
 
     }
 
-    public override int SaveChanges()
+    public override int SaveChanges() //Interception Mechanism
     {
         var entries = ChangeTracker.Entries();
 
@@ -22,8 +22,12 @@ public class ProductifyDbContext : DbContext
         {
             if (entry.State == EntityState.Added)
             {
-                ((EntityBase)entry.Entity).CreatedAt = DateTime.UtcNow;
+                ((EntityBase)entry.Entity).CreatedAt = DateTime.UtcNow.AddHours(-1);
                 ((EntityBase)entry.Entity).IsDeleted = false;
+            }
+            else if (entry.State == EntityState.Modified)
+            {
+                ((EntityBase)entry.Entity).UpdatedAt = DateTime.UtcNow;
             }
         }
 
