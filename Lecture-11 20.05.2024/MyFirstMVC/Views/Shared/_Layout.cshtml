@@ -3,16 +3,44 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MyFirstMVC</title>
+    <title>@ViewData["Title"] - Hakan</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MyFirstMVC.styles.css" asp-append-version="true" />
+    <style>
+        .profile-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .profile-container h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .profile-container p {
+            margin: 10px 0;
+            color: #555;
+            font-size: 16px;
+        }
+        .profile-container .name {
+            font-weight: bold;
+            font-size: 18px;
+            color: #000;
+        }
+        .profile-container .phone-number {
+            font-style: italic;
+            color: #666;
+        }
+    </style>
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MyFirstMVC</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">First MVC</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -24,6 +52,9 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                         <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="ProfilePage">Profile Page</a>
                         </li>
                     </ul>
                 </div>
