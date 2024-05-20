@@ -10,4 +10,13 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Controllers/" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Spovify.Application\Spovify.Application.csproj" />
+    <ProjectReference Include="..\Spovify.Persistence\Spovify.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>

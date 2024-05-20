@@ -17,4 +17,20 @@ public class SpovifyDbContext : DbContext
     {
         optionsBuilder.UseNpgsql("Host=localhost;Database=SpovifyDb;Username=postgres;Password=mysecretpassword");
     }
+
+    public override int SaveChanges()
+    {
+        var entries = ChangeTracker
+            .Entries();
+
+        foreach (var entry in entries)
+        {
+            if (entry.State == EntityState.Added)
+                ((EntityBase<Guid>)entry.Entity).CreatedAt = DateTime.UtcNow;
+            else if (entry.State == EntityState.Modified)
+                ((EntityBase<Guid>)entry.Entity).UpdatedAt = DateTime.UtcNow;
+        }
+
+        return base.SaveChanges();
+    }
 }

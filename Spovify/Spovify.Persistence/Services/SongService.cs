@@ -14,11 +14,14 @@ public class SongService : ISongService
 
     public void Add(AddSongDto addSongDto)
     {
+        var artist = _context.Artists.FirstOrDefault(x => x.Id == addSongDto.ArtistId);
+        var producer = _context.Producers.FirstOrDefault(x => x.Id == addSongDto.ProducerId);
+
         var newSong = new Song()
         {
             Name = addSongDto.Name,
-            Artist = addSongDto.Artist,
-            Producer = addSongDto.Producer
+            Artist = artist,
+            Producer = producer,
         };
 
         _context.Songs.Add(newSong);
@@ -29,6 +32,7 @@ public class SongService : ISongService
     public List<GetSongDto> List()
     {
         var data = _context.Songs
+            .Where(x => !x.IsDeleted)
             .Select(x => new GetSongDto()
                 {
                     Id = x.Id,
@@ -47,7 +51,9 @@ public class SongService : ISongService
         if (song is null)
             return new DeleteSongResponse(false, "Song not found.");
 
-        _context.Songs.Remove(song);
+        // _context.Songs.Remove(song);
+
+        song.IsDeleted = true;
 
         _context.SaveChanges();
 
@@ -57,13 +63,15 @@ public class SongService : ISongService
     public UpdateSongResponse Update(Guid id, UpdateSongDto updateSongDto)
     {
         var song = _context.Songs.FirstOrDefault(x => x.Id == id);
+        var artist = _context.Artists.FirstOrDefault(x => x.Id == updateSongDto.ArtistId);
+        var producer = _context.Producers.FirstOrDefault(x => x.Id == updateSongDto.ProducerId);
 
         if (song is null)
             return new UpdateSongResponse(false, "Song not found.");
 
         song.Name = updateSongDto.Name;
-        song.Artist = updateSongDto.Artist;
-        song.Producer = updateSongDto.Producer;
+        song.Artist = artist;
+        song.Producer = producer;
 
         _context.SaveChanges();
 

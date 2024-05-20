@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spovify.Domain", "Spovify.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spovify.Persistence", "Spovify.Persistence\Spovify.Persistence.csproj", "{006CABFA-3E59-4D8F-8E81-7F993298E1A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spovify.Presentation", "Spovify.Presentation\Spovify.Presentation.csproj", "{DAC48565-6733-4B6C-9F5C-75E6FFED17E4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spovify.Presentation", "Spovify.Presentation\Spovify.Presentation.csproj", "{2B695689-0EF9-49C4-B1C7-52D405427B9C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{006CABFA-3E59-4D8F-8E81-7F993298E1A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{006CABFA-3E59-4D8F-8E81-7F993298E1A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{006CABFA-3E59-4D8F-8E81-7F993298E1A7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DAC48565-6733-4B6C-9F5C-75E6FFED17E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DAC48565-6733-4B6C-9F5C-75E6FFED17E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DAC48565-6733-4B6C-9F5C-75E6FFED17E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DAC48565-6733-4B6C-9F5C-75E6FFED17E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B695689-0EF9-49C4-B1C7-52D405427B9C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B695689-0EF9-49C4-B1C7-52D405427B9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B695689-0EF9-49C4-B1C7-52D405427B9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B695689-0EF9-49C4-B1C7-52D405427B9C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
