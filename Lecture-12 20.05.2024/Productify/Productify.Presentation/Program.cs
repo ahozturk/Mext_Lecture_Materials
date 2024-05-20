@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Productify.Application;
 using Productify.Persistence;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +11,7 @@ builder.Services.AddDbContext<ProductifyDbContext>(options =>
 {
     options.UseNpgsql(builder.Configuration.GetConnectionString("PostgreSQL"));
 });
+builder.Services.AddScoped<IProductService, ProductService>();
 
 var app = builder.Build();
 
