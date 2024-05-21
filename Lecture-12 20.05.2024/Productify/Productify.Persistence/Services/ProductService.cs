@@ -57,9 +57,9 @@ public class ProductService : IProductService
         return products;
     }
 
-    public void Update(Guid id, UpdateProductDto updateProductDto)
+    public void Update(UpdateProductDto updateProductDto)
     {
-        var product = _context.Products.FirstOrDefault(x => x.Id == id);
+        var product = _context.Products.FirstOrDefault(x => x.Id == updateProductDto.Id);
 
         if (product is null)
             throw new Exception("Product not found");

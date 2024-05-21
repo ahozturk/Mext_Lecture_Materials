@@ -36,9 +36,24 @@ namespace MyApp.Namespace
         }
 
         [HttpPost]
-        public ActionResult Add(string name, string description)
+        public ActionResult Add(AddProductDto addProductDto)
+        {
+            _productService.Add(addProductDto);
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Edit()
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Edit(UpdateProductDto updateProductDto)
+        {
+            _productService.Update(updateProductDto);
+            return View();
+        }
+
     }
 }
