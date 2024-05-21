@@ -10,17 +10,17 @@ public class ProductifyDbContextFactory : IDesignTimeDbContextFactory<Productify
     {
         var optionsBuilder = new DbContextOptionsBuilder<ProductifyDbContext>();
 
-            IConfigurationRoot configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
-                .Build();
+        IConfigurationRoot configuration = new ConfigurationBuilder()
+            .SetBasePath($"{Directory.GetParent(Directory.GetCurrentDirectory())}/Productify.Presentation")
+            .AddJsonFile("appsettings.json")
+            .Build();
 
-            // Get connection string
-            var connectionString = configuration.GetConnectionString("PostgreSQL");
+        // Get connection string
+        var connectionString = configuration.GetConnectionString("PostgreSQL");
 
-            // Configure the DbContext to use PostgreSQL
-            optionsBuilder.UseNpgsql(connectionString);
+        // Configure the DbContext to use PostgreSQL
+        optionsBuilder.UseNpgsql(connectionString);
 
-            return new ProductifyDbContext(optionsBuilder.Options);
+        return new ProductifyDbContext(optionsBuilder.Options);
     }
 }

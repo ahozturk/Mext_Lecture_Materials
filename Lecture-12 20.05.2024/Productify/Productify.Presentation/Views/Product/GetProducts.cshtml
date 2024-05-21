@@ -1,0 +1,26 @@
+@using Productify.Application
+@model List<GetProductDto>
+
+<h1>Get Products</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Description</th>
+            <th scope="col">Is Deleted</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr>
+                <td>@product.Id</td>
+                <td>@product.Name</td>
+                <td>@product.Description</td>
+                <td>@product.IsDeleted</td>
+            </tr>
+        }
+    </tbody>
+</table>

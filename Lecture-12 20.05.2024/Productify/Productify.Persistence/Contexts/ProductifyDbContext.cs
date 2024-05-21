@@ -11,7 +11,7 @@ public class ProductifyDbContext : DbContext
 
     public ProductifyDbContext(DbContextOptions<ProductifyDbContext> options) : base(options)
     {
-
+        
     }
 
     public override int SaveChanges() //Interception Mechanism
