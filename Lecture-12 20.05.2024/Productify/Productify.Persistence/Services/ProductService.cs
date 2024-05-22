@@ -44,7 +44,7 @@ public class ProductService : IProductService
         _context.SaveChanges();
     }
 
-    public List<GetProductDto> GetAll()
+    public List<GetProductDto> GetAll(Paginition paginition)
     {
         var products = _context.Products.Select(x => new GetProductDto
         {
@@ -52,7 +52,10 @@ public class ProductService : IProductService
             Name = x.Name,
             Description = x.Description,
             IsDeleted = x.IsDeleted,
-        }).ToList();
+        })
+        .ToList() //Buraya dikkat (IQueryable - IEnumerable)
+        .Skip(paginition.PageSize * paginition.PageCount)
+        .Take(paginition.PageSize);
 
         return products;
     }
