@@ -10,6 +10,7 @@
             <th scope="col">Name</th>
             <th scope="col">Description</th>
             <th scope="col">Is Deleted</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -20,6 +21,7 @@
                 <td>@product.Name</td>
                 <td>@product.Description</td>
                 <td>@product.IsDeleted</td>
+                <td><a href="/Product/Edit?id=@product.Id">Edit</a></td>
             </tr>
         }
     </tbody>

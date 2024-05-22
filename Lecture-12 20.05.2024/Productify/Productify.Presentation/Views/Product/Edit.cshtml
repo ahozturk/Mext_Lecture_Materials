@@ -1,14 +1,16 @@
+@using Productify.Application
+@model GetProductDto
 <h1>Edit</h1>
 
 <form asp-controller="Product" asp-action="Edit" method="post">
     <p>Product Id:</p>
-    <input name="id"/>
+    <input name="id" asp-for="Id"/>
 
     <p>Product Name:</p>
-    <input name="name"/>
+    <input name="name" asp-for="Name"/>
 
     <p>Product Description:</p>
-    <input name="description"/>
+    <input name="description" asp-for="Description"/>
     <br>
     <br>
     <button>Edit Product</button>

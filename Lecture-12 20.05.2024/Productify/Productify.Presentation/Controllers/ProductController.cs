@@ -39,20 +39,31 @@ namespace MyApp.Namespace
         public ActionResult Add(AddProductDto addProductDto)
         {
             _productService.Add(addProductDto);
-            return View();
+            return RedirectToAction(nameof(GetAll));
         }
 
+        // [HttpGet]
+        // public ActionResult Edit()
+        // {
+        //     return View();
+        // }
+
         [HttpGet]
-        public ActionResult Edit()
+        public ActionResult Edit(Guid id)
         {
-            return View();
+            var product = _productService.GetById(id);
+
+            if (product is null)
+                return View();
+            
+            return View(product);
         }
 
         [HttpPost]
         public ActionResult Edit(UpdateProductDto updateProductDto)
         {
             _productService.Update(updateProductDto);
-            return View();
+            return RedirectToAction(nameof(GetAll));
         }
 
     }

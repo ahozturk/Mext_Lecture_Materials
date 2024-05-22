@@ -57,6 +57,19 @@ public class ProductService : IProductService
         return products;
     }
 
+    public GetProductDto GetById(Guid id)
+    {
+        return _context.Products
+            .Select(x => new GetProductDto
+            {
+                Id = x.Id,
+                Name = x.Name,
+                Description = x.Description,
+                IsDeleted = x.IsDeleted,
+            })
+            .FirstOrDefault(x => x.Id == id)!;
+    }
+
     public void Update(UpdateProductDto updateProductDto)
     {
         var product = _context.Products.FirstOrDefault(x => x.Id == updateProductDto.Id);
