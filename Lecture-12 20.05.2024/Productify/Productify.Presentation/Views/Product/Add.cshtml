@@ -1,11 +1,14 @@
 <h1>Add Product</h1>
 
 <form asp-controller="Product" asp-action="Add" method="post">
-    <p>Product Name:</p>
-    <input name="name"/>
-    <p>Product Description:</p>
-    <input name="description"/>
+    <div class="form-group col-3">
+        <label>Product Name:</label>
+        <input name="name" type="text" class="form-control" placeholder="Enter product name">
+    </div>
+    <div class="form-group col-3">
+        <label>Product Description:</label>
+        <input name="description" class="form-control" placeholder="Enter product description"/>
+    </div>
     <br>
-    <br>
-    <button>Add Product</button>
+    <button class="btn btn-success">Add Product</button>
 </form>

@@ -53,24 +53,19 @@ public class ProductService : IProductService
             Description = x.Description,
             IsDeleted = x.IsDeleted,
         })
-        .ToList() //Buraya dikkat (IQueryable - IEnumerable)
         .Skip(paginition.PageSize * paginition.PageCount)
-        .Take(paginition.PageSize);
+        .Take(paginition.PageSize)
+        .ToList();
 
         return products;
     }
 
     public GetProductDto GetById(Guid id)
     {
-        return _context.Products
-            .Select(x => new GetProductDto
-            {
-                Id = x.Id,
-                Name = x.Name,
-                Description = x.Description,
-                IsDeleted = x.IsDeleted,
-            })
-            .FirstOrDefault(x => x.Id == id)!;
+        var selectedProduct = _context.Products
+            .FirstOrDefault(x => x.Id == id);
+
+        return MappingService.ConvertToGetProductDto(selectedProduct);
     }
 
     public void Update(UpdateProductDto updateProductDto)

@@ -23,9 +23,9 @@ namespace MyApp.Namespace
             return View();
         }
 
-        public ActionResult GetAll()
+        public ActionResult GetAll(Paginition paginition)
         {
-            var products = _productService.GetAll();
+            var products = _productService.GetAll(paginition);
             return View(products);
         }
 
