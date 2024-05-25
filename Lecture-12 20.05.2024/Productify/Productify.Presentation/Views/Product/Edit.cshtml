@@ -3,15 +3,16 @@
 <h1>Edit</h1>
 
 <form asp-controller="Product" asp-action="Edit" method="post">
+    <div class="form-group col-3">
     <p>Product Id:</p>
-    <input name="id" asp-for="Id"/>
+    <input asp-for="Id" class="form-control" placeholder="Enter product Id"/>
 
     <p>Product Name:</p>
-    <input name="name" asp-for="Name"/>
+    <input asp-for="Name" class="form-control" placeholder="Enter product name"/>
 
     <p>Product Description:</p>
-    <input name="description" asp-for="Description"/>
+    <input name="description" class="form-control" placeholder="Enter product description"/>
     <br>
-    <br>
-    <button>Edit Product</button>
+    <button class="btn btn-success">Edit Product</button>
+    </div>
 </form>
