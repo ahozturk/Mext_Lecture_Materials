@@ -2,7 +2,7 @@
 
 namespace TwoTaxiApp.Domain;
 
-public class Person : EntityBase<Guid>
+public abstract class Person : EntityBase<Guid>
 {
     public string Name { get; set; }
     public string Surname { get; set; }
