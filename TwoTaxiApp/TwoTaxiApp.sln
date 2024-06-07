@@ -1,0 +1,49 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.002.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwoTaxiApp.WebAPI", "TwoTaxiApp.WebAPI\TwoTaxiApp.WebAPI.csproj", "{9ECF5093-3FEC-47DC-B6B0-C06C3ED6030F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwoTaxiApp.Domain", "TwoTaxiApp.Domain\TwoTaxiApp.Domain.csproj", "{04AA6362-9C11-4616-9F63-0F83B09A6BA0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwoTaxiApp.Application", "TwoTaxiApp.Application\TwoTaxiApp.Application.csproj", "{5D0A0A6F-CDE6-4E8F-AFBD-2E9104C45227}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TwoTaxiApp.Infrastructure", "TwoTaxiApp.Infrastructure\TwoTaxiApp.Infrastructure.csproj", "{A92DF3E1-0C0A-47C8-B543-876151511C35}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TwoTaxiApp.DbConsole", "TwoTaxiApp.DbConsole\TwoTaxiApp.DbConsole.csproj", "{E5C1AE1D-FDA2-430F-B441-42C089AE56D0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9ECF5093-3FEC-47DC-B6B0-C06C3ED6030F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9ECF5093-3FEC-47DC-B6B0-C06C3ED6030F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9ECF5093-3FEC-47DC-B6B0-C06C3ED6030F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9ECF5093-3FEC-47DC-B6B0-C06C3ED6030F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04AA6362-9C11-4616-9F63-0F83B09A6BA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04AA6362-9C11-4616-9F63-0F83B09A6BA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04AA6362-9C11-4616-9F63-0F83B09A6BA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04AA6362-9C11-4616-9F63-0F83B09A6BA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D0A0A6F-CDE6-4E8F-AFBD-2E9104C45227}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D0A0A6F-CDE6-4E8F-AFBD-2E9104C45227}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D0A0A6F-CDE6-4E8F-AFBD-2E9104C45227}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D0A0A6F-CDE6-4E8F-AFBD-2E9104C45227}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A92DF3E1-0C0A-47C8-B543-876151511C35}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A92DF3E1-0C0A-47C8-B543-876151511C35}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A92DF3E1-0C0A-47C8-B543-876151511C35}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A92DF3E1-0C0A-47C8-B543-876151511C35}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5C1AE1D-FDA2-430F-B441-42C089AE56D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5C1AE1D-FDA2-430F-B441-42C089AE56D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5C1AE1D-FDA2-430F-B441-42C089AE56D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5C1AE1D-FDA2-430F-B441-42C089AE56D0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7BA8BDC0-F7A6-4A26-8467-68A2367DDE97}
+	EndGlobalSection
+EndGlobal
