@@ -2,5 +2,5 @@
 
 public class Student : Person
 {
-    public List<Course> Courses { get; set; }
+    public List<StudentCourse> StudentCourses { get; set; } = new List<StudentCourse>();
 }

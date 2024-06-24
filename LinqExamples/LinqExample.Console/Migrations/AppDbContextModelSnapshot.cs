@@ -22,21 +22,6 @@ namespace LinqExample.Console.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("CourseStudent", b =>
-                {
-                    b.Property<Guid>("CoursesId")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid>("StudentsId")
-                        .HasColumnType("uuid");
-
-                    b.HasKey("CoursesId", "StudentsId");
-
-                    b.HasIndex("StudentsId");
-
-                    b.ToTable("CourseStudent");
-                });
-
             modelBuilder.Entity("LinqExample.Console.Asistant", b =>
                 {
                     b.Property<Guid>("Id")
@@ -68,6 +53,13 @@ namespace LinqExample.Console.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Courses");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("26f204d6-8060-4c4f-8ef8-cfe5ba2624f7"),
+                            Title = "Math"
+                        });
                 });
 
             modelBuilder.Entity("LinqExample.Console.Student", b =>
@@ -87,6 +79,47 @@ namespace LinqExample.Console.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Students");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = new Guid("1d75e46a-401d-4f10-9d1d-82376b5187cf"),
+                            FirstName = "John Doe",
+                            LastName = "Öztürk"
+                        },
+                        new
+                        {
+                            Id = new Guid("f9d45b7b-039e-4976-93fa-6025b0c8f3f1"),
+                            FirstName = "Jane Doe",
+                            LastName = "Öztürk"
+                        });
+                });
+
+            modelBuilder.Entity("LinqExample.Console.StudentCourse", b =>
+                {
+                    b.Property<Guid>("StudentId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("CourseId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("StudentId", "CourseId");
+
+                    b.HasIndex("CourseId");
+
+                    b.ToTable("StudentCourse");
+
+                    b.HasData(
+                        new
+                        {
+                            StudentId = new Guid("1d75e46a-401d-4f10-9d1d-82376b5187cf"),
+                            CourseId = new Guid("26f204d6-8060-4c4f-8ef8-cfe5ba2624f7")
+                        },
+                        new
+                        {
+                            StudentId = new Guid("f9d45b7b-039e-4976-93fa-6025b0c8f3f1"),
+                            CourseId = new Guid("26f204d6-8060-4c4f-8ef8-cfe5ba2624f7")
+                        });
                 });
 
             modelBuilder.Entity("LinqExample.Console.Teacher", b =>
@@ -113,21 +146,6 @@ namespace LinqExample.Console.Migrations
                     b.ToTable("Teachers");
                 });
 
-            modelBuilder.Entity("CourseStudent", b =>
-                {
-                    b.HasOne("LinqExample.Console.Course", null)
-                        .WithMany()
-                        .HasForeignKey("CoursesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("LinqExample.Console.Student", null)
-                        .WithMany()
-                        .HasForeignKey("StudentsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("LinqExample.Console.Asistant", b =>
                 {
                     b.HasOne("LinqExample.Console.Course", "Course")
@@ -137,6 +155,25 @@ namespace LinqExample.Console.Migrations
                         .IsRequired();
 
                     b.Navigation("Course");
+                });
+
+            modelBuilder.Entity("LinqExample.Console.StudentCourse", b =>
+                {
+                    b.HasOne("LinqExample.Console.Course", "Course")
+                        .WithMany("StudentCourses")
+                        .HasForeignKey("CourseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("LinqExample.Console.Student", "Student")
+                        .WithMany("StudentCourses")
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Course");
+
+                    b.Navigation("Student");
                 });
 
             modelBuilder.Entity("LinqExample.Console.Teacher", b =>
@@ -151,7 +188,14 @@ namespace LinqExample.Console.Migrations
                     b.Navigation("Asistant")
                         .IsRequired();
 
+                    b.Navigation("StudentCourses");
+
                     b.Navigation("Teachers");
+                });
+
+            modelBuilder.Entity("LinqExample.Console.Student", b =>
+                {
+                    b.Navigation("StudentCourses");
                 });
 #pragma warning restore 612, 618
         }
