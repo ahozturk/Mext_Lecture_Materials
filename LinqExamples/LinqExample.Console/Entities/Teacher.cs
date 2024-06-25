@@ -2,5 +2,5 @@
 
 public class Teacher : Person
 {
-    List<Course> Courses { get; set; }
+    public List<Course> Courses { get; set; }
 }
